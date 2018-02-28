@@ -6,7 +6,7 @@ import {ConnectedRouter} from 'react-router-redux'
 import createHistory from 'history/createBrowserHistory'
 import configureStore from './configureStore'
 import SplashPage from './components/SplashPage.js'
-// import UserPage from './components/UserPage.js'
+import UserPage from './components/user/UserPage.js'
 
 const history = createHistory()
 const store = configureStore(history)
@@ -16,7 +16,7 @@ const Root = () => (
     <ConnectedRouter history={history}>
       <div>
         <Route exact path='/' component={SplashPage}/>
-        {/* <Route exact path='/users' component={UserPage}/> */}
+        <Route exact path='/users' component={UserPage}/>
       </div>
     </ConnectedRouter>
   </Provider>

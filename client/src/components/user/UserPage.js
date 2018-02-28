@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import styled from 'styled-components'
+import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 
 class UserPage extends Component {
-  componentWillMount() {
-
-  }
   render() {
     return (
       <div>
@@ -14,4 +13,4 @@ class UserPage extends Component {
   }
 }
 
-export default UserPage;
+export default connect(null, {push}) (UserPage)

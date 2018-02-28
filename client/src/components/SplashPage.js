@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 
 class SplashPage extends Component {
   render() {
@@ -10,4 +12,4 @@ class SplashPage extends Component {
   }
 }
 
-export default SplashPage;
+export default connect(null, {push}) (SplashPage)
