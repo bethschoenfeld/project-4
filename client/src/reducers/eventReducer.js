@@ -1,4 +1,4 @@
-function eventReducer(state = [], state) {
+function eventReducer(state = [], action) {
 
 switch (action.type) {
 

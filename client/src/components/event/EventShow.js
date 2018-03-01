@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { getOneEventRoute } from '../../actions/thunk.events.js'
+import{getEventsRoute} from '../../actions/thunk.events.js'
 import Navbar from '../navbar/Navbar.js'
 
 
@@ -58,4 +59,4 @@ const mapStateToProps = (state) => {
   return { eventBeingShown: state.events[0] }
 }
 
-export default connect(mapStateToProps, { getOneEventRoute })(EventShow);
+export default connect(mapStateToProps, { getOneEventRoute, getEventsRoute })(EventShow);

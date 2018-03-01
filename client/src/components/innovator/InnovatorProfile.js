@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {getInnovatorRoute} from '../../actions/thunk.innovators.js'
+import {getOneInnovatorRoute} from '../../actions/thunk.innovators.js'
 import {getEventsRoute} from '../../actions/thunk.events.js'
 import {push} from 'react-router-redux'
 import Navbar from '../navbar/Navbar'
@@ -12,6 +13,8 @@ class InnovatorProfile extends Component {
 
   componentWillMount() {
     const innovatorId = this.props.match.params.innovatorId
+    this.props.getEventsRoute(innovatorId)
+    this.props.getOneInnovatorRoute(innovatorId)
   }
 
   render() {
@@ -38,13 +41,12 @@ class InnovatorProfile extends Component {
 
         <h2 onClick={() => this.props.push(`/innovators/${innovatorId}/events/`)}>Events</h2>
         <Event>
-          {this.props
-            .events
+          {this.props.events
             .map((event, i) => {
               return (
                 <div key={i}>
                   <div onClick={() => this.props.push(`/innovators/${innovatorId}/events/${event.id}/show`)}>
-                    Name: {event.name}
+                    Name: {event.description}
                     <br/>
                     Innovator: {event.innovatorId}
                     <br/>
@@ -61,11 +63,10 @@ class InnovatorProfile extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {innovators: state.innovators, events: state.events
-  }
+  return {innovators: state.innovators, events: state.events}
 }
 
-export default connect(mapStateToProps, {getInnovatorRoute, getEventsRoute, push})(InnovatorProfile);
+export default connect(mapStateToProps, {getInnovatorRoute, getOneInnovatorRoute, getEventsRoute, push})(InnovatorProfile);
 
 
 
@@ -85,7 +86,6 @@ const Container = styled.div `
     color:black;
     width: 100%;
     position: absolute; 
-    background-image:linear-gradient(white,transparent,transparent,transparent,transparent),url(https://pbs.twimg.com/media/BzrxuvVIgAAj7YE.jpg:large);
     top: 0px;
     left: 0;
     background-size: cover;
@@ -105,7 +105,7 @@ const Container = styled.div `
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      color:white;
+      color: black;
       text-shadow:2px 2px 2px rgba(0,0,0,0.45);
     }
     button{
@@ -134,7 +134,6 @@ const Event = styled.div `
     align-items: flex-start;
     /* flex-flow:wrap; */
     text-align: left;
-    box-shadow:4px 4px 4px rgba(0,0,0,0.45);
     background:rgba(255,255,255,0.55);
     cursor: pointer;
     margin:2px;

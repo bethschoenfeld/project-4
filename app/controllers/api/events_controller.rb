@@ -1,30 +1,30 @@
 class Api::EventsController < ApplicationController
   def index
-    @events = Events.all
+    @events = Event.all
     render json: @events
   end
 
   def create
-    @event = Events.create!(event_params)
+    @event = Event.create!(event_params)
 
     render json: @event
   end
 
   def show
-    @event = Events.find(params[:id])
+    @event = Event.find(params[:id])
 
     render json: @event
   end
 
   def update
-    @event = Events.find(params[:id])
+    @event = Event.find(params[:id])
     @event.update!(event_params)
 
     render json: @event
   end
 
   def destroy
-    @event = Events.find(params[:id]).delete
+    @event = Event.find(params[:id]).delete
 
     render status: :ok
   end

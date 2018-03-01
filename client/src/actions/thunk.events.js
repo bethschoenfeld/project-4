@@ -6,7 +6,7 @@ export function sendEventsToState(eventsFromDatabase) {
 
 export function getEventsRoute(innovatorId) {
   return function (dispatch) {
-    return axios.get(`api/innovators/${innovatorId}/events`)
+    return axios.get(`/api/innovators/${innovatorId}/events`)
     .then((response) => {
       dispatch(sendEventsToState(response.data))
     })
