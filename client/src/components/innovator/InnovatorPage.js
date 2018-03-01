@@ -61,7 +61,6 @@ const Body = styled.div `
     color:black;
     width: 100%;
     position: absolute; 
-    background-image:linear-gradient(white,transparent,transparent,transparent,transparent),url(https://pbs.twimg.com/media/BzrxuvVIgAAj7YE.jpg:large);
     top: 50px;
     left: 0;
     background-size: cover;
