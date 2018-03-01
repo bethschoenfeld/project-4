@@ -18,7 +18,7 @@ export function sendOneUnserToState(userFromDatabase) {
   return {type: 'GET_ONE_USER', userFromDatabase}
 }
 
-export function getOneUserToState(userId) {
+export function getOneUserRoute(userId) {
   return function (dispatch) {
     return axios.get(`/api/users/${userId}`)
       .then((response) => {
