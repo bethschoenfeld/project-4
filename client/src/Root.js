@@ -18,6 +18,8 @@ import UserProfile from './components/user/UserProfile.js'
 import InnovatorPage from './components/innovator/InnovatorPage.js'
 import InnovatorProfile from './components/innovator/InnovatorProfile.js'
 
+import EventPage from './components/event/EventPage.js'
+
 const history = createHistory()
 const store = configureStore(history)
 console.log(store)
@@ -34,6 +36,8 @@ const Root = () => (
 
         <Route exact path='/innovators' component={InnovatorPage}/>
         <Route exact path='/innovators/:innovatorId/profile' component={InnovatorProfile}/>
+
+        <Route exact path='/events' component={EventPage}/>
       </div>
     </ConnectedRouter>
   </Provider>
