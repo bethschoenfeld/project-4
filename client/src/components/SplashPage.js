@@ -15,7 +15,7 @@ class SplashPage extends Component {
           Users
         </button>
         <button type='button' onClick={() => this.props.push('/innovators')}>
-          innovators
+          Innovators
         </button>
         </div>
       </Container>

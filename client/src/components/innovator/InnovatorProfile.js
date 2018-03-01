@@ -50,11 +50,8 @@ class InnovatorProfile extends Component {
               return (
                 <div key={i}>
                   <div onClick={() => this.props.push(`/innovators/${innovatorId}/events/${event.id}/show`)}>
-                    Name: {event.description}
+                    Description: {event.description}
                     <br/>
-                    Innovator: {event.innovatorId}
-                    <br/>
-
                   </div>
                 </div>
               )
