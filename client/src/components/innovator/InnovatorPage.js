@@ -33,6 +33,8 @@ class InnovatorPage extends Component {
 
                   <div onClick={() => this.props.push(`/innovators/${innovator.id}/profile`)}>
                     <img src={innovator.picture} alt={innovator.name}/>
+                    Job: {innovator.job}
+                    About: {innovator.description}
                   </div>
 
                   

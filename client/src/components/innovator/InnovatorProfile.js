@@ -33,6 +33,10 @@ class InnovatorProfile extends Component {
                   <h2>{innovator.name}</h2>
                   <br/>
                   <img src={innovator.picture} alt={innovator.name}/>
+                  <br/>
+                  Job: {innovator.job}
+                  <br/>
+                  About: {innovator.description}
                 </div>
 
               )

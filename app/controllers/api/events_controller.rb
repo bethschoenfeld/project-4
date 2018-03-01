@@ -1,6 +1,6 @@
 class Api::EventsController < ApplicationController
   def index
-    @events = Event.all
+    @events = Innovator.find(params[:innovator_id]).events
     render json: @events
   end
 
@@ -32,6 +32,6 @@ class Api::EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:eventname,  :email, :picture)
+    params.require(:event).permit(:workshop, :oneonone, :description, :picture)
   end
 end
