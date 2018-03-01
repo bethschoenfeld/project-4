@@ -14,9 +14,9 @@ class Navbar extends Component {
                 <button onClick={() => this.props.push(`/users`)}>
                     Users
                 </button>
-                {/* <button onClick={() => this.props.push(`/cities`)}>
-                    Cities
-                </button> */}
+                <button onClick={() => this.props.push(`/innovators`)}>
+                    Innovators
+                </button>
 
             </Container>
         )

@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import {getUserRoute, deleteUserFromDatabase} from '../../actions/thunk.users.js'
+import Navbar from '../navbar/Navbar.js'
+
 
 class UserPage extends Component {
 
@@ -15,6 +17,7 @@ class UserPage extends Component {
   render() {
     return (
       <Body>
+      <Navbar/>
         <button onClick={() => this.props.push('/')}>
           Home
         </button>

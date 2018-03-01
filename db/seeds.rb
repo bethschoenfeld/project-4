@@ -35,11 +35,13 @@ jeremy = User.create(
 
 
 dan = Innovator.create(
+  name: 'Dan Abramov',
   job: 'Developer',
   description: "Working on @reactjs. Co-author of Redux and Create React App. Building tools for humans.",
   picture: 'https://i.imgur.com/jYtJxYd.jpg'
 )
 emma = Innovator.create(
+  name: 'Emma Watson',
   job: 'Actor and Activist',
   description: "In addition to her extensive acting career, 
   she was appointed as a UN Women Goodwill ambassador 
@@ -49,6 +51,7 @@ emma = Innovator.create(
 )
 
 bill = Innovator.create(
+  name: 'Bill Gates',
   job: 'A business magnate, investor, author, philanthropist, and humanitarian.',
   description: "A principal founder of the Microsoft Corporation and the Bill & Melinda
   Gates Foundation, and The Giving People.",

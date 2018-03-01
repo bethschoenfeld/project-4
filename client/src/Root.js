@@ -15,6 +15,9 @@ import NewUserForm from './components/user/NewUserForm.js'
 import EditUserForm from './components/user/EditUserForm.js'
 import UserProfile from './components/user/UserProfile.js'
 
+import InnovatorPage from './components/innovator/InnovatorPage.js'
+import InnovatorProfile from './components/innovator/InnovatorProfile.js'
+
 const history = createHistory()
 const store = configureStore(history)
 console.log(store)
@@ -28,6 +31,9 @@ const Root = () => (
         <Route exact path='/users/new' component={NewUserForm}/>
         <Route exact path='/users/:userId/edit' component={EditUserForm}/>
         <Route exact path='/users/:userId/profile' component={UserProfile}/>
+
+        <Route exact path='/innovators' component={InnovatorPage}/>
+        <Route exact path='/innovators/:innovatorId/profile' component={InnovatorProfile}/>
       </div>
     </ConnectedRouter>
   </Provider>
