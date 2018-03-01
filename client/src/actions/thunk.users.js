@@ -54,6 +54,11 @@ export function editUserInDatabase(editedUserInfo) {
 }
 
 export function deleteUserFromState(userToDeleteId) {
+  return {type: 'DELETE_USER', userToDeleteId}
+}
+
+
+export function deleteUserFromDatabase(userToDeleteFromDatabase) {
   return function (dispatch) {
     return axios.delete(`/api/users/${userToDeleteFromDatabase.id}`)
     .then((response) => {
