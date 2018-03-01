@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import{getEventsRoute} from '../../actions/thunk.events.js'
+import {getInnovatorRoute} from '../../actions/thunk.innovators.js'
 import Navbar from '../navbar/Navbar.js'
+
 
 class EventPage extends Component {
 
@@ -11,6 +13,7 @@ componentWillMount() {
   const innovatorId = this.props.match.params.innovatorId
 
   this.props.getEventsRoute(innovatorId)
+  this.props.getInnovatorRoute()
 }
 
   render() {
@@ -28,10 +31,10 @@ componentWillMount() {
             .map((event, i) => {
               return (
                 <div key={i}>
-                  <div onClick={() => this.props.push(`/innovators/${innovatorId}/events/${event.id}/show`)}>
-                    Title: {event.name}
+                  <div onClick={() => this.props.push('/events')}>
+                    Title: {event.workshop} {event.oneonone}
                     <br/>
-                    Innovator: {event.innovatorId}
+                    Innovator: {innovator.name}
                     <br/>
                     Description: {event.description}
                     <br/>
@@ -48,7 +51,7 @@ componentWillMount() {
 const mapStateToProps = (state) => {
   return {events: state.events}
 }
-export default connect(mapStateToProps, {push, getEventsRoute})(EventPage)
+export default connect(mapStateToProps, {push, getEventsRoute, getInnovatorRoute})(EventPage)
 
 
 
@@ -59,15 +62,7 @@ const Body = styled.div `
     justify-content: center;
     align-items: center;`
 
-const PostEdit = styled.div `
-font-family: 'Montserrat', sans-serif;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-margin: 30px;
-position: absolute;
-`
+
 
 const Event = styled.div `
     display: flex;

@@ -1,7 +1,14 @@
 class Api::EventsController < ApplicationController
   def index
-    @events = Innovator.find(params[:innovator_id]).events
+    @events = Event.all
     render json: @events
+    
+    # @events = Innovator.find(params[:innovator_id]).events
+    # render json: @events
+
+
+    # @events = User.find(params[:user_id]).events
+    # render json: @events
   end
 
   def create

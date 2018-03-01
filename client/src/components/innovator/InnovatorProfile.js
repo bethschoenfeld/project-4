@@ -6,7 +6,6 @@ import {getOneInnovatorRoute} from '../../actions/thunk.innovators.js'
 import {getEventsRoute} from '../../actions/thunk.events.js'
 import {push} from 'react-router-redux'
 import Navbar from '../navbar/Navbar'
-import EventPage from '../event/EventPage.js'
 
 
 class InnovatorProfile extends Component {
@@ -23,7 +22,7 @@ class InnovatorProfile extends Component {
       
       <Container>
         <div>
-          <Navbar className="NavBox"/>
+          <Navbar/>
         </div>
         {this.props.innovators
           .map((innovator, i) => {

@@ -20,7 +20,7 @@ class EventShow extends Component {
     this.setState({
       eventBeingShown: {
         id: this.props.match.params.eventId,
-        title: newProps.eventBeingShown.name,
+        // title: newProps.eventBeingShown.name,
         content: newProps.eventBeingShown.description,
 
       }
@@ -29,7 +29,7 @@ class EventShow extends Component {
 
   state = {
     eventBeingShown: {
-      name: "",
+      // name: "",
       description: ""
 
     }
@@ -43,8 +43,8 @@ class EventShow extends Component {
           <Navbar />
         </div>
         <h1>Event</h1>
-        <br />
-        <h3>{this.state.eventBeingShown.name}</h3>
+        {/* <br />
+        <h3>{this.state.eventBeingShown.name}</h3> */}
         <br />
         <p>{this.state.eventBeingShown.description}</p>
 
