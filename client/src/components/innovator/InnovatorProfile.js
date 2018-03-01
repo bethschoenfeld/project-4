@@ -2,8 +2,11 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
 import {getInnovatorRoute} from '../../actions/thunk.innovators.js'
+import {getEventsRoute} from '../../actions/thunk.events.js'
 import {push} from 'react-router-redux'
 import Navbar from '../navbar/Navbar'
+import EventPage from '../event/EventPage.js'
+
 
 class InnovatorProfile extends Component {
 
@@ -33,19 +36,24 @@ class InnovatorProfile extends Component {
             }
           })}
 
-        {/* <h2 onClick={() => this.props.push(`/innovators/${innovatorId}/events/`)}>Events</h2>
-        {this.props.events
-          .map((event, i) => {
-            return (
-              <Event>
+        <h2 onClick={() => this.props.push(`/innovators/${innovatorId}/events/`)}>Events</h2>
+        <Event>
+          {this.props
+            .events
+            .map((event, i) => {
+              return (
                 <div key={i}>
-                  <div>
-                    <h3 onClick={() => this.props.push(`/innovators/${innovatorId}/events/${event.id}/show`)}>{event.title}</h3>
+                  <div onClick={() => this.props.push(`/innovators/${innovatorId}/events/${event.id}/show`)}>
+                    Name: {event.name}
+                    <br/>
+                    Innovator: {event.innovatorId}
+                    <br/>
+
                   </div>
                 </div>
-              </Event>
-            ) */}
-          {/* })} */}
+              )
+            })}
+        </Event>
       </Container>
 
     );
@@ -53,14 +61,11 @@ class InnovatorProfile extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return {innovators: state.innovators, 
-    // events: state.events
+  return {innovators: state.innovators, events: state.events
   }
 }
 
-export default connect(mapStateToProps, {getInnovatorRoute, 
-  // getEventsRoute, 
-  push})(InnovatorProfile);
+export default connect(mapStateToProps, {getInnovatorRoute, getEventsRoute, push})(InnovatorProfile);
 
 
 
@@ -122,18 +127,19 @@ const Container = styled.div `
       transform:translateY(2px);
       }};
 `
-// const Event = styled.div `
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: flex-start;
-//     /* flex-flow:wrap; */
-//     text-align: left;
-//     box-shadow:4px 4px 4px rgba(0,0,0,0.45);
-//     background:rgba(255,255,255,0.55);
-//     cursor: pointer;
-//     margin:2px;
-//     padding-left: 15px;
-//     /* height: 40vh; */
-//     width: 80vh;
-//     /* overflow:scroll; */
+const Event = styled.div `
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    /* flex-flow:wrap; */
+    text-align: left;
+    box-shadow:4px 4px 4px rgba(0,0,0,0.45);
+    background:rgba(255,255,255,0.55);
+    cursor: pointer;
+    margin:2px;
+    padding-left: 15px;
+    /* height: 40vh; */
+    width: 80vh;
+    /* overflow:scroll; */
+    `

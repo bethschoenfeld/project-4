@@ -30,7 +30,7 @@ export function sendNewEventToState(newEventData) {
 }
 export function sendNewEventToDatabase(innovatorId, newEventInfo) {
   return function (dispatch) {
-    return axios.post(`/api/innovators/${innovatorid}/events`, newEventInfo)
+    return axios.post(`/api/innovators/${innovatorId}/events`, newEventInfo)
       .then((response) => {
       dispatch(sendNewEventToState(response.data))
       })

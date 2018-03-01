@@ -3,9 +3,12 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
+import{getEventsRoute} from '../../actions/thunk.events.js'
 
 class Navbar extends Component {
+
     render() {
+
         return (
             <Container>
                 <button onClick={() => this.props.push(`/`)}>
@@ -17,13 +20,16 @@ class Navbar extends Component {
                 <button onClick={() => this.props.push(`/innovators`)}>
                     Innovators
                 </button>
+                {/* <button onClick={() => this.props.push(`api/innovators/${innovatorId}/events`)}>
+                    Events
+                </button> */}
 
             </Container>
         )
     }
 }
 
-export default connect(null, {push})(Navbar)
+export default connect(null, {push, getEventsRoute})(Navbar)
 
 
 
