@@ -46,6 +46,10 @@ class InnovatorProfile extends Component {
         <Event>
           {this.props.events
             .map((event, i) => {
+              console.log("event id "+ event.innovator_id)
+              console.log("params id "+ innovatorId)
+
+              if (event.innovator_id == innovatorId){
               return (
                 <div key={i}>
                   <div onClick={() => this.props.push(`/innovators/${innovatorId}/events/${event.id}/show`)}>
@@ -53,7 +57,7 @@ class InnovatorProfile extends Component {
                     <br/>
                   </div>
                 </div>
-              )
+              )}
             })}
         </Event>
       </Container>
@@ -92,7 +96,6 @@ const Container = styled.div `
     
     background-repeat:no-repeat;
     font-family: 'Montserrat', sans-serif;
-    /* background-color: #212121; */
     img{
       width: 60vh;
       height: 45vh;
@@ -106,7 +109,7 @@ const Container = styled.div `
       justify-content: center;
       align-items: center;
       color: black;
-      text-shadow:2px 2px 2px rgba(0,0,0,0.45);
+      /* text-shadow:2px 2px 2px rgba(0,0,0,0.45); */
     }
     button{
       border:1px solid black;
@@ -119,7 +122,6 @@ const Container = styled.div `
       margin:5px;
       font-family: 'Montserrat', sans-serif;
       background:rgba(255,255,255,0.45);
-      border-radius: 5px;
       cursor: pointer;
       &:hover{
       color: white;

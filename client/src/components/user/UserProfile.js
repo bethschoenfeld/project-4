@@ -119,7 +119,6 @@ const Container = styled.div`
         margin:5px;
         font-family: 'Montserrat', sans-serif;
         background:rgba(255,255,255,0.45);
-        border-radius: 5px;
         cursor: pointer;
         &:hover{
         color: white;

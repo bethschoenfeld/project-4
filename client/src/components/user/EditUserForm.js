@@ -115,7 +115,6 @@ const Container = styled.div `
     width: 100%;
     position: absolute; 
     
-    background-image:linear-gradient(white,transparent,transparent,transparent,transparent),url(https://pbs.twimg.com/media/BzrxuvVIgAAj7YE.jpg:large);
     top: 0;
     left: 0;
     background-size: cover;

@@ -94,7 +94,6 @@ const Body = styled.div `
       margin:5px;
       font-family: 'Montserrat', sans-serif;
       background:rgba(255,255,255,0.45);
-      border-radius: 5px;
       cursor: pointer;
       &:hover{
       color: white;
@@ -138,32 +137,15 @@ const InnovatorBox = styled.div `
     background: rgba(255,255,255,0.55);
     font-size: 2.25vh;
     cursor: pointer;
-    box-shadow: 3px 3px 0px #3f3f3f;
     img {
         width: 38vh;
     height:25vh;
     border: 1px solid darkgray;
-    box-shadow: 1.5px 1.5px 0px #7e7e7e;
     align-self: center;
     margin:5px;
     }&:hover{
         color: #696969;
         transform:translateY(2px);
-        box-shadow: 1.5px 1.5px 0px #7e7e7e;
         z-index: 3;
     }
-    button{
-      border:1px solid black;
-      background:none;
-      width: 75px;
-      height: 30px;
-      padding:7.5px;
-      font-size: 15px;
-      font-family: 'Montserrat', sans-serif;
-      flex-self:center;
-      border-radius: 5px;
-      cursor: pointer;
-      &:hover{
-      background:rgba(0,0,0,0.15)
-      }
 `;

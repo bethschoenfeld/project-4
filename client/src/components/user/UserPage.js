@@ -22,7 +22,7 @@ class UserPage extends Component {
           Home
         </button>
         <Header>
-          <div>What's Up Y'all? </div>
+          <div>All Users</div>
         </Header>
         <div>
           <button onClick={() => this.props.push(`/users/new`)}>
@@ -95,7 +95,6 @@ const Body = styled.div `
       margin:5px;
       font-family: 'Montserrat', sans-serif;
       background:rgba(255,255,255,0.45);
-      border-radius: 5px;
       cursor: pointer;
       &:hover{
       color: white;
@@ -143,22 +142,19 @@ const UserBox = styled.div `
     margin:5px;
     padding:5px;
     color: black;
-    border: 1px solid darkgray;
+    /* border: 1px solid darkgray; */
     background: rgba(255,255,255,0.55);
     font-size: 2.25vh;
-    box-shadow: 3px 3px 0px #3f3f3f;
+    /* box-shadow: 3px 3px 0px #3f3f3f; */
     img {
         width: 15vh;
     height:15vh;
-    border: 1px solid darkgray;
-    box-shadow: 1.5px 1.5px 0px #7e7e7e;
-    border-radius: 8vh;
+    
     align-self: center;
     margin:5px;
     }&:hover{
         color: #696969;
         transform:translateY(2px);
-        box-shadow: 1.5px 1.5px 0px #7e7e7e;
         z-index: 3;
     }
     input{
@@ -180,7 +176,6 @@ const UserBox = styled.div `
       font-size: 15px;
       font-family: 'Montserrat', sans-serif;
       flex-self:center;
-      border-radius: 5px;
       cursor: pointer;
       &:hover{
       background:rgba(0,0,0,0.15)

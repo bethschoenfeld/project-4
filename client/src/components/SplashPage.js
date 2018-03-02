@@ -9,13 +9,16 @@ class SplashPage extends Component {
     return (
       
       <Container>
-        <h1>Innovation</h1>
+        <h1>Innovation Station</h1>
         <div>
         <button type='button' onClick={() => this.props.push('/users')}>
           Users
         </button>
         <button type='button' onClick={() => this.props.push('/innovators')}>
           Innovators
+        </button>
+        <button type='button' onClick={() => this.props.push('/events')}>
+          Events
         </button>
         </div>
       </Container>
@@ -42,7 +45,7 @@ const Container = styled.div `
     font-family: 'Montserrat', sans-serif;
     color:#000033;
     font-size: 45px;
-    text-shadow:4px 4px 8px rgba(0,0,0,0.35);
+    /* text-shadow:4px 4px 8px rgba(0,0,0,0.35); */
     background-size: cover;
     background-repeat:no-repeat;
     h1{
@@ -55,13 +58,11 @@ const Container = styled.div `
       background:none;
       margin-left: 20px;
       background:rgba(255,255,255,0.35);
-      box-shadow:4px 4px 8px rgba(0,0,0,0.35);
-      width:100px;
+      width:150px;
       padding:7.5px;
       font-size: 25px;
       font-family: 'Montserrat', sans-serif;
       align-self:flex-start;
-      border-radius: 5px;
       cursor: pointer;
       &:hover{
         color:white;
