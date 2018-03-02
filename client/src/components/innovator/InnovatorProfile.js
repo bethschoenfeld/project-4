@@ -24,20 +24,21 @@ class InnovatorProfile extends Component {
         <div>
           <Navbar/>
         </div>
+
         {this.props.innovators
           .map((innovator, i) => {
             if (innovator.id == innovatorId) {
               return (
-                <div key={i}>
+                <div className="innovatorCard"key={i}>
                   <h2>{innovator.name}</h2>
                   <br/>
                   <img src={innovator.picture} alt={innovator.name}/>
                   <br/>
                   Job: {innovator.job}
                   <br/>
+                  <br/>
                   About: {innovator.description}
                 </div>
-
               )
             }
           })}
@@ -53,7 +54,9 @@ class InnovatorProfile extends Component {
               return (
                 <div key={i}>
                   <div onClick={() => this.props.push(`/innovators/${innovatorId}/events/${event.id}/show`)}>
-                    Description: {event.description}
+                    Description: 
+                    <br/>
+                    {event.description}
                     <br/>
                   </div>
                 </div>
@@ -89,19 +92,28 @@ const Container = styled.div `
     height: 100%;
     color:black;
     width: 100%;
-    position: absolute; 
+    position: relative; 
     top: 0px;
     left: 0;
     background-size: cover;
-    
     background-repeat:no-repeat;
     font-family: 'Montserrat', sans-serif;
+
+    .innovatorCard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80vh;
+    }
+
     img{
+      
       width: 60vh;
       height: 45vh;
       border: 2px solid white;
       margin-bottom:20px;
-      box-shadow:5px 5px 5px rgba(255,255,255,0.45);
     }
     h2{
       display: flex;
@@ -121,7 +133,7 @@ const Container = styled.div `
       text-align: center;
       margin:5px;
       font-family: 'Montserrat', sans-serif;
-      background:rgba(255,255,255,0.45);
+      background:rgba(255,255,255,0);
       cursor: pointer;
       &:hover{
       color: white;
@@ -140,7 +152,5 @@ const Event = styled.div `
     cursor: pointer;
     margin:2px;
     padding-left: 15px;
-    /* height: 40vh; */
     width: 80vh;
-    /* overflow:scroll; */
     `

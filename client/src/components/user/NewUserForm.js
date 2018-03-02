@@ -95,22 +95,18 @@ const Container = styled.div `
     color:black;
     width: 100%;
     position: absolute; 
-    background-image:linear-gradient(white,transparent,transparent,transparent,transparent),url(https://pbs.twimg.com/media/BzrxuvVIgAAj7YE.jpg:large);
     top: 0;
     left: 0;
     background-size: cover;
     background-repeat:no-repeat;
     font-family: 'Montserrat', sans-serif;
-    /* background-color: #212121; */
     input{
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-shadow: 2px 2px 0px rgba(0,0,0,0.25);
       border:1px solid black;
       background:none;
-      border-radius:3px;
       width: 35vh;
       height: 5vh;
       margin: 3px;
@@ -128,7 +124,6 @@ const Container = styled.div `
       margin:5px;
       font-family: 'Montserrat', sans-serif;
       background:rgba(255,255,255,0.45);
-      border-radius: 5px;
       cursor: pointer;
       &:hover{
         color: white;
