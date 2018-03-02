@@ -1,61 +1,99 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import {connect} from 'react-redux'
-import {push} from 'react-router-redux'
-import{getEventsRoute} from '../../actions/thunk.events.js'
-import {getInnovatorRoute} from '../../actions/thunk.innovators.js'
+import { connect } from 'react-redux'
+import { push } from 'react-router-redux'
+import { getEventsRoute } from '../../actions/thunk.events.js'
+import { getInnovatorRoute } from '../../actions/thunk.innovators.js'
 import Navbar from '../navbar/Navbar.js'
+import axios from 'axios'
+
 
 
 class EventPage extends Component {
 
-componentWillMount() {
-  const innovatorId = this.props.match.params.innovatorId
+  state = {
+    innovators: [],
+    events: [],
+    eventAndInnovator: []
 
-  this.props.getEventsRoute(innovatorId)
-  this.props.getInnovatorRoute()
-}
+  }
+
+  async componentWillMount() {
+    const innovatorId = this.props.match.params.innovatorId
+    this.props.getEventsRoute(innovatorId)
+    await this.getInnovator()
+  }
+
+
+
+
+
+  getInnovator = async () => {
+    const allEvents = await axios.get('/api/events')
+    const events = allEvents.data
+
+
+    const allInnovators = await axios.get('/api/innovators')
+    const innovators = allInnovators.data
+
+    const eventAndInnovator = []
+    events.forEach((individualEvent) => {
+
+      const ev = individualEvent.innovator_id
+      const innovator = innovators.some((person) => {
+        if (person.id === ev) {
+          return eventAndInnovator.push({ event: individualEvent, innovator: person.name })
+          return true;
+        }
+      })
+
+    })
+
+
+    this.setState({
+      innovators: innovators,
+      events: events,
+      eventAndInnovator
+    })
+
+  }
+
 
   render() {
     const innovatorId = this.props.match.params.innovatorId
 
     return (
-      
-      <Body>
-        <Navbar/>
-        <h2>Event Page</h2>
-        <Event>
-          {this
-            .props
-            .events
-            .map((event, i) => {
-              return (
-                <div key={i}>
-                  <div onClick={() => this.props.push('/events')}>
-                    Title: {event.workshop} {event.oneonone}
-                    <br/>
-                    Innovator: {innovator.name}
-                    <br/>
-                    Description: {event.description}
-                    <br/>
 
-                  </div>
-                </div>
-              )
-            })}
-        </Event>
+      <Body>
+        <Navbar />
+        <h2>Event Page</h2>
+        {
+          this.state.eventAndInnovator.map((eventInn) => {
+            return (
+              <div>
+                {eventInn.innovator}
+                <br/>
+                <br/>
+              
+                {eventInn.event.description}
+                
+              </div>
+            )
+          })
+        }
+
       </Body>
     )
   }
 }
 const mapStateToProps = (state) => {
-  return {events: state.events}
+  return { events: state.events }
 }
-export default connect(mapStateToProps, {push, getEventsRoute, getInnovatorRoute})(EventPage)
+export default connect(mapStateToProps, { push, getEventsRoute, getInnovatorRoute })(EventPage)
 
 
 
-const Body = styled.div `
+const Body = styled.div`
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
@@ -63,8 +101,7 @@ const Body = styled.div `
     align-items: center;`
 
 
-
-const Event = styled.div `
+const Event = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
