@@ -1,24 +1,33 @@
 # README
+# Innovation Station
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Innovation station is an application that connects thought leaders(innovatos) in their feild with users through workshops and one on ones. It is so important to share knowledge and this app gives innovators the chance to share and users the chance to soak up knowledge nuggets.  
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+[Heroku](https://beth-s-project-4.herokuapp.com/)
 
-* Configuration
+[Trello](https://trello.com/b/uyvnEAB4/project-4)
 
-* Database creation
+[GitHub](https://github.com/bethschoenfeld/project-4)
 
-* Database initialization
+[Wireframes](https://i.imgur.com/s3z95x5.jpg)
 
-* How to run the test suite
+[ERD](https://i.imgur.com/yo85pfp.jpg)
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Technologies Used
 
-* ...
+* React
+* React-Router
+* Redux
+* Heroku
+* Git
+* Node
+* Express
+* Mongoose
+* Trello 
+* Figma
+* imgur
+
+
