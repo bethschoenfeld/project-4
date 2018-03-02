@@ -1,7 +1,7 @@
 # README
 # Innovation Station
 
-Innovation station is an application that connects thought leaders(innovators) in their feild with users through workshops and one on ones. It is so important to share knowledge and this app gives innovators the chance to share and users the chance to soak up knowledge nuggets.  
+Innovation station is an application that connects thought leaders(innovators) in their field with users through workshops and one on ones. It is so important to share knowledge and this app gives innovators the chance to share and users the chance to soak up knowledge nuggets.  
 
 
 
