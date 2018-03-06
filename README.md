@@ -23,9 +23,8 @@ Innovation station is an application that connects thought leaders(innovators) i
 * Redux
 * Heroku
 * Git
-* Node
-* Express
-* Mongoose
+* Ruby
+* Rails
 * Trello 
 * Figma
 * imgur
