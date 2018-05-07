@@ -2,7 +2,7 @@ import axios from 'axios'
 
 
 
-export function sendInnovatorstoState(innovatorsFromDatabase) {
+export function sendInnovatorsToState(innovatorsFromDatabase) {
   return {type: 'GET_INNOVATORS', innovatorsFromDatabase}
 }
 
@@ -10,7 +10,7 @@ export function getInnovatorRoute() {
   return function (dispatch) {
     return axios.get('/api/innovators')
     .then((response) => {
-      dispatch(sendInnovatorstoState(response.data))
+      dispatch(sendInnovatorsToState(response.data))
     })
   }
 }
@@ -54,8 +54,8 @@ export function editedInnovatorInDatabase(editedInnovatorInfo) {
   }
 }
 
-export function deleteInnovatorFromState(cityToDeleteId) {
-  return {type: 'DELETE_CITY', cityToDeleteId}
+export function deleteInnovatorFromState(innovatorToDeleteId) {
+  return {type: 'DELETE_INNOVATORS', innovatorToDeleteId}
 }
 
 export function deleteInnovatorFromDatabase(innovatorToDeleteFromDatabase) {
