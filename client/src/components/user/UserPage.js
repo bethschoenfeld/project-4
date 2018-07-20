@@ -17,18 +17,11 @@ class UserPage extends Component {
   render() {
     return (
       <Body>
-      <Navbar/>
-        <button onClick={() => this.props.push('/')}>
-          Home
-        </button>
+      <Navbar/>  
         <Header>
           <div>All Users</div>
         </Header>
-        <div>
-          <button onClick={() => this.props.push(`/users/new`)}>
-            New User
-          </button>
-        </div>
+
         
         <Container>
 
@@ -58,6 +51,12 @@ class UserPage extends Component {
 
         </Container>
 
+        <div>
+          <button onClick={() => this.props.push(`/users/new`)}>
+            New User
+          </button>
+        </div>
+
       </Body>
     )
   }
@@ -78,12 +77,11 @@ const Body = styled.div `
     height: 100%;
     color:black;
     width: 100%;
-    position: absolute; 
+    /* position: absolute;  */
     top: 50px;
     left: 0;
     background-size: cover;
     background-repeat:no-repeat;
-    font-family: 'Montserrat', sans-serif;
     button{
       border:1px solid black;
       background:none;
@@ -93,13 +91,11 @@ const Body = styled.div `
       font-size: 15px;
       text-align: center;
       margin:5px;
-      font-family: 'Montserrat', sans-serif;
       background:rgba(255,255,255,0.45);
       cursor: pointer;
       &:hover{
       color: white;
-      background:rgba(0,0,0,0.15);
-      transform:translateY(2px);
+      background:rgba(0,0,0,1);
       }};
 `
 
@@ -110,26 +106,12 @@ const Container = styled.div `
     justify-content: center;
     align-items: center;
     color:black;
-    font-family: 'Montserrat', sans-serif;
     margin: 40px;
-    a{
-        text-decoration: none;
-        color:black;
-        &:hover{
-        color: #696969;
-        transform:translateY(2px);
-        text-shadow: 0px 0px 0px #bdbdbd;
-        z-index: 3;
-    }
-    }
 `;
 
 const Header = styled.h1 `
     margin: 40px auto;
-    
-    font-size: 3vh;
-    text-shadow: 1.5px 1.5px 0px whitesmoke;
-    /* border-bottom: thin solid white; */
+    font-size: 10vh;
 `;
 
 const UserBox = styled.div `
@@ -142,30 +124,17 @@ const UserBox = styled.div `
     margin:5px;
     padding:5px;
     color: black;
-    /* border: 1px solid darkgray; */
     background: rgba(255,255,255,0.55);
     font-size: 2.25vh;
-    /* box-shadow: 3px 3px 0px #3f3f3f; */
     img {
-        width: 15vh;
+    width: 15vh;
     height:15vh;
-    
     align-self: center;
     margin:5px;
     }&:hover{
-        color: #696969;
-        transform:translateY(2px);
-        z-index: 3;
-    }
-    input{
-      display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-      border:1px solid black;
-      background:none;
-      border-radius:2px;
-      width: 20vh;
+        color:black;
+        
+      
     }
     button{
       border:1px solid black;
@@ -174,10 +143,9 @@ const UserBox = styled.div `
       height: 30px;
       padding:7.5px;
       font-size: 15px;
-      font-family: 'Montserrat', sans-serif;
       flex-self:center;
       cursor: pointer;
       &:hover{
-      background:rgba(0,0,0,0.15)
+      background:rgba(255,255,255,1)
       }
 `;

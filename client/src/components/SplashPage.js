@@ -2,25 +2,19 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {push} from 'react-router-redux'
 import styled from 'styled-components'
-
+import Navbar from './navbar/Navbar'
 
 class SplashPage extends Component {
   render() {
     return (
-      
+
       <Container>
+        <Navbar/>
         <h1>Innovation Station</h1>
-        <div>
-        <button type='button' onClick={() => this.props.push('/users')}>
-          Users
-        </button>
-        <button type='button' onClick={() => this.props.push('/innovators')}>
-          Innovators
-        </button>
-        <button type='button' onClick={() => this.props.push('/events')}>
-          Events
-        </button>
-        </div>
+        <p>Innovation station is an application that connects thought leaders (innovators) 
+        in their field with users through workshops and one on ones. It is so important 
+        to share knowledge and this app gives innovators the chance to share and users the 
+        chance to soak up knowledge nuggets.  </p>
       </Container>
 
     );
@@ -36,37 +30,19 @@ const Container = styled.div `
     flex-direction:column;
     justify-content:center;
     align-items:center;
-    width:100vw;
-    height:100vh;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    font-family: 'Montserrat', sans-serif;
-    color:#000033;
     font-size: 45px;
-    /* text-shadow:4px 4px 8px rgba(0,0,0,0.35); */
-    background-size: cover;
-    background-repeat:no-repeat;
     h1{
-    position: absolute;
-    top:65px;
-    margin:20px;
+    display:flex;
+    justify-content:center;
+    width:75vw;
+    color: black;
+    font-size: 85px;
     }
-    button{
-      border:1px solid black;
-      background:none;
-      margin-left: 20px;
-      background:rgba(255,255,255,0.35);
-      width:150px;
-      padding:7.5px;
-      font-size: 25px;
-      font-family: 'Montserrat', sans-serif;
-      align-self:flex-start;
-      cursor: pointer;
-      &:hover{
-        color:white;
-      background:rgb(0,0,0);
-      transform:translateY(2px);
+    p{
+      display:flex;
+      justify-content:center;
+      width:75vw;
+    
+      font-size: 25px;  
       }
-    }`
+    `
