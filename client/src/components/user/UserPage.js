@@ -32,8 +32,8 @@ class UserPage extends Component {
               return (
                 <UserBox key={i}>
                   <div onClick={() => this.props.push(`/users/${user.id}/profile`)}>
+                    <h2> {user.username} <br/></h2>
                     <img width="200" src={user.picture} alt={user.username}/>
-                    <br/> {user.username}
                   </div>
 
                   <div>
@@ -115,8 +115,6 @@ const Header = styled.h1 `
 `;
 
 const UserBox = styled.div `
-    width: 27.5vh;
-    height: 27.5vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -124,28 +122,29 @@ const UserBox = styled.div `
     margin:5px;
     padding:5px;
     color: black;
-    background: rgba(255,255,255,0.55);
     font-size: 2.25vh;
+    h2{
+      display: flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+    }
     img {
-    width: 15vh;
-    height:15vh;
-    align-self: center;
-    margin:5px;
-    }&:hover{
-        color:black;
-        
-      
+      object-fit:cover;
+      width: 15vh;
+      height:15vh;
+      align-self: center;
+      margin:5px;
     }
     button{
       border:1px solid black;
       background:none;
-      width: 75px;
-      height: 30px;
-      padding:7.5px;
+      width: 125px;
+      height: 45px;
       font-size: 15px;
-      flex-self:center;
       cursor: pointer;
       &:hover{
-      background:rgba(255,255,255,1)
+      color:white;
+      background:rgba(0,0,0,1)
       }
 `;

@@ -90,7 +90,7 @@ class EditUserForm extends Component {
             value={this.state.userBeingEdited.picture}/>
         </div>
         <button onClick={this.handleEditedUser}>
-          Edit
+          Save
         </button>
       </Container>
     )
