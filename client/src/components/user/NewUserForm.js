@@ -42,9 +42,7 @@ class NewUserForm extends Component {
   render() {
     return (
       <Container>
-        <div>
           <Navbar />
-        </div>
         
           <h3> Username:</h3>
         <input

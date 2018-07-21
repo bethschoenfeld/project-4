@@ -52,9 +52,7 @@ class EditUserForm extends Component {
   render() {
     return (
       <Container>
-        <div>
           <Navbar />
-        </div>
           <h1>
             {this.state.userBeingEdited.username}
           </h1>

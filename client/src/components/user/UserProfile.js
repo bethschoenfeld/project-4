@@ -45,9 +45,7 @@ class UserProfile extends Component {
         return (
 
             <Container>
-                <div>
                     <Navbar />
-                </div>
                 <Header>
                     <div>
                     User Profile

@@ -44,12 +44,6 @@ const Container = styled.div`
     width: 100%;
     position: relative; 
     margin-top:20px;
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-repeat:no-repeat;
-    font-family: 'Raleway', sans-serif;
-    /* background-color: #212121; */
     button{
     width: 125px;
     height: 45px;
@@ -57,7 +51,6 @@ const Container = styled.div`
     font-size: 15px;
     text-align: center;
     margin:5px;
-    font-family: 'Raleway', sans-serif;
     background:rgba(255,255,255,0.45);
     cursor: pointer;
     &:hover{
