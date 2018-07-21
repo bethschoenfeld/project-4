@@ -39,9 +39,9 @@ class EventPage extends Component {
     const eventAndInnovator = []
     events.forEach((individualEvent) => {
 
-      const ev = individualEvent.innovator_id
+      const event = individualEvent.innovator_id
       const innovator = innovators.some((person) => {
-        if (person.id === ev) {
+        if (person.id === event) {
           return eventAndInnovator.push({ event: individualEvent, innovator: person.name })
           return true;
         }
@@ -66,16 +66,16 @@ class EventPage extends Component {
 
       <Body>
         <Navbar />
-        <h2>Event Page</h2>
-        {
-          this.state.eventAndInnovator.map((eventInn) => {
+        <Header>
+        <div>Events Page</div>
+        </Header>
+        {this.state.eventAndInnovator.map((eventInnovator) => {
             return (
               <div>
-                {eventInn.innovator}
-                <br/>
-                <br/>
-              
-                {eventInn.event.description}
+                <h3>{eventInnovator.innovator}</h3>
+                <Event>
+                {eventInnovator.event.description}
+                </Event>
                 
               </div>
             )
@@ -94,55 +94,24 @@ export default connect(mapStateToProps, { push, getEventsRoute, getInnovatorRout
 
 
 const Body = styled.div`
-    font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;`
 
+const Header = styled.div `
+    margin: 40px auto;
+    font-size: 10vh;
+`;
 
 const Event = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    /* flex-flow:wrap; */
     text-align: left;
-    box-shadow:4px 4px 4px rgba(0,0,0,0.45);
-    cursor: pointer;
-    background:rgba(255,255,255,0.45);
     margin:2px;
-    border: 1px solid darkgray;
     padding: 15px;
-    height: 60vh;
-    width: 80vh;
-    /* overflow:scroll; */
-    button{
-      border:1px solid black;
-      background:none;
-      width: 125px;
-      height: 45px;
-      padding:7.5px;
-      font-size: 15px;
-      text-align: center;
-      margin:5px;
-      font-family: 'Montserrat', sans-serif;
-      background:rgba(255,255,255,0.45);
-      border-radius: 5px;
-      cursor: pointer;
-      &:hover{
-      color: white;
-      background:rgba(0,0,0,0.15);
-      transform:translateY(2px);
-      }
-    input{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border:1px solid black;
-      background:none;
-      border-radius:2px;
-      width: 60vh;
-    }
+    height: 10vh;
+    width: 60vh;
 `
