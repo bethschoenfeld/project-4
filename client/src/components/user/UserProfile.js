@@ -106,9 +106,8 @@ const Container = styled.div`
     color:black;
     width: 100%;
     position: absolute; 
-    background-size: cover;
-    background-repeat:no-repeat;
     img{
+        object-fit:cover;
         width: 45vh;
         height: 45vh;
         border: 2px solid black;

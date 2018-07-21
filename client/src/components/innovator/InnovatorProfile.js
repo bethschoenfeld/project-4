@@ -97,7 +97,7 @@ const Container = styled.div `
     img{
       width: 60vh;
       height: 45vh;
-      border: 2px solid white;
+      border: 2px solid black;
       margin-bottom:20px;
     }
     h2{
