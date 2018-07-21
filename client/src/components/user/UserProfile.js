@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { getOneUserRoute } from '../../actions/thunk.users.js'
 import { getEventsRoute } from '../../actions/thunk.events.js'
+import {getInnovatorRoute} from '../../actions/thunk.innovators.js'
 import Navbar from '../navbar/Navbar.js'
 
 class UserProfile extends Component {
@@ -13,6 +14,8 @@ class UserProfile extends Component {
         this.props.getOneUserRoute(userId)
         this.props.getEventsRoute(userId)
 
+        const innovatorId = this.props.match.params.innovatorId;
+        this.props.getInnovatorRoute(innovatorId)
     }
     componentWillReceiveProps(nextProps) {
         this.setState(
@@ -38,34 +41,45 @@ class UserProfile extends Component {
 
     render() {
         const userId = this.props.match.params.userId
+        const innovatorId = this.props.match.params.innovatorId
         return (
 
             <Container>
                 <div>
                     <Navbar />
                 </div>
-                <h3>User Profile</h3>
+                <Header>
+                    <div>
+                    User Profile
+                    </div>
+                
+                </Header>
                 <br />
                 <img src={this.state.singleUser.picture} alt={this.state.singleUser.username} />
-                <h1>
+                <h2>
                     {this.state.singleUser.username}
-                    <br />
-                    {this.state.singleUser.email}
-                </h1>
+                </h2>
+                <h4>
+                    Email: {this.state.singleUser.email}
+                </h4>
+                <br/>
 
-                <h2 onClick={() => this.props.push(`/users/${userId}/events/`)}>Events</h2>
+                <h1 onClick={() => this.props.push(`/events`)}>Events</h1>
                     {this.props.events
                         .map((event, i) => {
                             return (
                                 <div key={i}>
-                                    <div onClick={() => this.props.push(`/users/${userId}/events/${event.id}/show`)}>
-                                        Innovator: {event.innovator}
-                                        <br/>
-                                        Description: {event.description}
+                                    {/* <div onClick={() => this.props.push(`/users/${userId}/events/${event.id}/show`)}> */}
+                                        <h4>
+                                            Innovator: {event.innovator}
+                                        </h4>
+                                        <h4>
+                                            Description: {event.description}
+                                            </h4>
                                         
                                         <br />
                                     </div>
-                                </div>
+                                // </div>
                             )
                         })}
 
@@ -79,7 +93,7 @@ const mapStateToProps = (state) => {
     return { singleUser: state.users[0], events: state.events }
 }
 
-export default connect(mapStateToProps, { getOneUserRoute, getEventsRoute, })(UserProfile);
+export default connect(mapStateToProps, {push, getOneUserRoute, getEventsRoute, getInnovatorRoute })(UserProfile);
 
 
 
@@ -94,35 +108,24 @@ const Container = styled.div`
     color:black;
     width: 100%;
     position: absolute; 
-    top: 0;
-    left: 0;
     background-size: cover;
     background-repeat:no-repeat;
-    font-family: 'Montserrat', sans-serif;
-
     img{
-        margin:12.5px;
         width: 45vh;
         height: 45vh;
-        border: 2px solid white;
-        box-shadow:5px 5px 5px rgba(255,255,255,0.45);
+        border: 2px solid black;
     }
-        
     button{
-        border:1px solid black;
-        background:none;
-        width: 125px;
-        height: 45px;
-        padding:7.5px;
-        font-size: 15px;
-        text-align: center;
-        margin:5px;
-        font-family: 'Montserrat', sans-serif;
-        background:rgba(255,255,255,0.45);
-        cursor: pointer;
-        &:hover{
-        color: white;
-        background:rgba(0,0,0,0.15);
-        transform:translateY(2px);
-    }};
-`
+        border:1px solid black;   
+    };
+    h4{
+        display:flex;
+        justify-content:center;
+        width:75vw;
+        font-size: 25px;
+    }
+    `
+const Header = styled.h3 `
+margin: 40px auto;
+font-size: 5vh;
+`;

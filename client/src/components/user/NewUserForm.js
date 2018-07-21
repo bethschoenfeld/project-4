@@ -46,7 +46,7 @@ class NewUserForm extends Component {
           <Navbar />
         </div>
         
-          <div> Username:</div>
+          <h3> Username:</h3>
         <input
           className="newUser"
           type="text"
@@ -54,8 +54,7 @@ class NewUserForm extends Component {
           onChange={this.handleNewUserChange}
           value={this.state.newUserForm.username}
           placeholder="Username"/>
-        <br/>
-        <div>Email:</div>
+        <h3>Email:</h3>
         <input
           className="newUser"
           type="text"
@@ -63,8 +62,7 @@ class NewUserForm extends Component {
           onChange={this.handleNewUserChange}
           value={this.state.newUserForm.email}
           placeholder="Email"/>
-          <br/>
-        <div> Picture:</div>
+        <h3> Picture:</h3>
         <input
           className="newUser"
           type="text"
@@ -94,12 +92,10 @@ const Container = styled.div `
     height: 100%;
     color:black;
     width: 100%;
-    position: absolute; 
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-repeat:no-repeat;
-    font-family: 'Montserrat', sans-serif;
+    h3{
+      display: flex;
+      flex-direction:column;
+    }
     input{
       display: flex;
       flex-direction: column;
@@ -118,15 +114,10 @@ const Container = styled.div `
       background:none;
       width: 125px;
       height: 45px;
-      padding:7.5px;
       font-size: 15px;
-      text-align: center;
-      margin:5px;
-      font-family: 'Montserrat', sans-serif;
-      background:rgba(255,255,255,0.45);
       cursor: pointer;
       &:hover{
-        color: white;
-      background:rgba(0,0,0,0.15);
+      color:white;
+      background:rgba(0,0,0,.85)
       }};
 `

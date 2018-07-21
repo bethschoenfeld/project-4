@@ -42,7 +42,6 @@ const Container = styled.div `
       display:flex;
       justify-content:center;
       width:75vw;
-    
       font-size: 25px;  
       }
     `

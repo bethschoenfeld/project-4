@@ -77,7 +77,6 @@ const Body = styled.div `
     height: 100%;
     color:black;
     width: 100%;
-    /* position: absolute;  */
     top: 50px;
     left: 0;
     background-size: cover;
@@ -95,7 +94,7 @@ const Body = styled.div `
       cursor: pointer;
       &:hover{
       color: white;
-      background:rgba(0,0,0,1);
+      background:rgba(0,0,0,.85);
       }};
 `
 
@@ -145,6 +144,6 @@ const UserBox = styled.div `
       cursor: pointer;
       &:hover{
       color:white;
-      background:rgba(0,0,0,1)
+      background:rgba(0,0,0,.85)
       }
 `;

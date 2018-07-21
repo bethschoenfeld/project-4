@@ -54,41 +54,37 @@ class EditUserForm extends Component {
       <Container>
         <div>
           <Navbar />
-          </div>
-        <div>
-          <h2>
-            {this.state.userBeingEdited.username}</h2>
         </div>
-        <div>
-          <div>
-            Username:</div>
+          <h1>
+            {this.state.userBeingEdited.username}
+          </h1>
+          <h3>
+            Username:
+          </h3>
           <input
             className="editUser"
             type="text"
             name="username"
             onChange={this.handleChange}
             value={this.state.userBeingEdited.username}/>
-        </div>
-        <div>
-          <div>
-            Email:</div>
+          <h3>
+            Email:
+          </h3>
           <input
             className="editUser"
             type="text"
             name="email"
             onChange={this.handleChange}
             value={this.state.userBeingEdited.email}/>
-        </div>
-        <div>
-          <div>
-            Picture:</div>
+          <h3>
+            Picture:
+          </h3>
           <input
             className="editUser"
             type="text"
             name="picture"
             onChange={this.handleChange}
             value={this.state.userBeingEdited.picture}/>
-        </div>
         <button onClick={this.handleEditedUser}>
           Save
         </button>
@@ -113,22 +109,13 @@ const Container = styled.div `
     height: 100%;
     color:black;
     width: 100%;
-    position: absolute; 
-    
-    top: 0;
-    left: 0;
-    background-size: cover;
-    background-repeat:no-repeat;
-    font-family: 'Montserrat', sans-serif;
     input{
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      /* box-shadow: 2px 2px 0px rgba(0,0,0,0.25); */
       border:1px solid black;
       background:none;
-      /* border-radius:3px; */
       width: 35vh;
       height: 5vh;
       margin: 3px;
@@ -144,12 +131,10 @@ const Container = styled.div `
       font-size: 15px;
       text-align: center;
       margin:5px;
-      font-family: 'Montserrat', sans-serif;
       background:rgba(255,255,255,0.45);
-      /* border-radius: 5px; */
       cursor: pointer;
       &:hover{
         color: white;
-      background:rgba(0,0,0,0.15);
+      background:rgba(0,0,0,0.85);
       }};
 `
