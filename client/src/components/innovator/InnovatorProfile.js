@@ -21,29 +21,25 @@ class InnovatorProfile extends Component {
     return (
       
       <Container>
-        <div>
           <Navbar/>
-        </div>
 
         {this.props.innovators
           .map((innovator, i) => {
             if (innovator.id == innovatorId) {
               return (
                 <div className="innovatorCard"key={i}>
-                  <h2>{innovator.name}</h2>
-                  <br/>
+                  <h1>{innovator.name}</h1>
                   <img src={innovator.picture} alt={innovator.name}/>
-                  <br/>
-                  Job: {innovator.job}
-                  <br/>
-                  <br/>
-                  About: {innovator.description}
+                  <h2>Job</h2>
+                  <div>{innovator.job}</div>
+                  <h2>About</h2>
+                  <div> {innovator.description}</div>
                 </div>
               )
             }
           })}
 
-        <h2 onClick={() => this.props.push(`/innovators/${innovatorId}/events/`)}>Events</h2>
+        <h2 onClick={() => this.props.push(`/events`)}>Events</h2>
         <Event>
           {this.props.events
             .map((event, i) => {
@@ -54,10 +50,7 @@ class InnovatorProfile extends Component {
               return (
                 <div key={i}>
                   <div onClick={() => this.props.push(`/innovators/${innovatorId}/events/${event.id}/show`)}>
-                    Description: 
-                    <br/>
-                    {event.description}
-                    <br/>
+                    Description: {event.description}
                   </div>
                 </div>
               )}
@@ -93,12 +86,6 @@ const Container = styled.div `
     color:black;
     width: 100%;
     position: relative; 
-    top: 0px;
-    left: 0;
-    background-size: cover;
-    background-repeat:no-repeat;
-    font-family: 'Montserrat', sans-serif;
-
     .innovatorCard{
     display: flex;
     flex-direction: column;
@@ -107,9 +94,7 @@ const Container = styled.div `
     position: relative;
     width: 80vh;
     }
-
     img{
-      
       width: 60vh;
       height: 45vh;
       border: 2px solid white;
@@ -119,9 +104,9 @@ const Container = styled.div `
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
+      text-align: left;
       color: black;
-      /* text-shadow:2px 2px 2px rgba(0,0,0,0.45); */
     }
     button{
       border:1px solid black;
@@ -132,13 +117,11 @@ const Container = styled.div `
       font-size: 15px;
       text-align: center;
       margin:5px;
-      font-family: 'Montserrat', sans-serif;
       background:rgba(255,255,255,0);
       cursor: pointer;
       &:hover{
       color: white;
-      background:rgba(0,0,0,0.15);
-      transform:translateY(2px);
+      background:rgba(0,0,0,0.85);
       }};
 `
 const Event = styled.div `
@@ -146,7 +129,6 @@ const Event = styled.div `
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    /* flex-flow:wrap; */
     text-align: left;
     background:rgba(255,255,255,0.55);
     cursor: pointer;

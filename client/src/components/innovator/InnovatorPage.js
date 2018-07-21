@@ -16,10 +16,9 @@ class InnovatorPage extends Component {
     return ( 
     <Body>
       <Navbar/>
-        <div>
-          <h2>Innovator Page</h2>
-        </div>
-        <br/>
+        <Header>
+        <div>Innovator Page</div>
+        </Header>
         <Container>
           {this.props.innovators
             .map((innovator, i) => {
@@ -60,47 +59,30 @@ const Body = styled.div `
     height: 100%;
     color:black;
     width: 100%;
-    position: absolute; 
     top: 50px;
     left: 0;
     background-size: cover;
     background-repeat:no-repeat;
-    font-family: 'Montserrat', sans-serif;
-    /* background-color: #212121; */
-    input{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      border:1px solid black;
-      background:none;
-      border-radius:2px;
-      background:rgba(255,255,255,0.45);
-      width:30vh;
-      height: 4vh;
-    }
     button{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       border:1px solid black;
       background:none;
-      width: 20vh;
-      height: 5vh;
+      width: 125px;
+      height: 45px;
       padding:7.5px;
       font-size: 15px;
       text-align: center;
       margin:5px;
-      font-family: 'Montserrat', sans-serif;
       background:rgba(255,255,255,0.45);
       cursor: pointer;
       &:hover{
       color: white;
-      background:rgba(0,0,0,0.15);
-      transform:translateY(2px);
+      background:rgba(0,0,0,.85);
       }};
 `
+const Header = styled.div `
+    margin: 40px auto;
+    font-size: 10vh;
+`;
 
 const Container = styled.div `
     display: flex;
@@ -109,13 +91,12 @@ const Container = styled.div `
     justify-content: center;
     align-items: center;
     color:black;
-    font-family: 'Montserrat', sans-serif;
     margin: 40px;
 `;
 
 const InnovatorTitle = styled.div `
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 70vh;
     justify-content: flex-end;
     align-items: center;
@@ -133,19 +114,16 @@ const InnovatorBox = styled.div `
     margin:5px;
     padding:5px;
     color: black;
-    border: 1px solid darkgray;
     background: rgba(255,255,255,0.55);
     font-size: 2.25vh;
     cursor: pointer;
     img {
-        width: 38vh;
-    height:25vh;
-    border: 1px solid darkgray;
-    align-self: center;
-    margin:5px;
+      object-fit:contain;
+      width: 38vh;
+      height:25vh;
+      align-self: center;
+      margin:5px;
     }&:hover{
         color: #696969;
-        transform:translateY(2px);
-        z-index: 3;
     }
 `;

@@ -108,7 +108,7 @@ const Container = styled.div `
     margin: 40px;
 `;
 
-const Header = styled.h1 `
+const Header = styled.div `
     margin: 40px auto;
     font-size: 10vh;
 `;
