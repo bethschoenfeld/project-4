@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { getOneUserRoute } from '../../actions/thunk.users.js'
 import { getEventsRoute } from '../../actions/thunk.events.js'
-import {getInnovatorRoute} from '../../actions/thunk.innovators.js'
+import { getInnovatorRoute } from '../../actions/thunk.innovators.js'
 import Navbar from '../navbar/Navbar.js'
 
 class UserProfile extends Component {
@@ -40,19 +40,16 @@ class UserProfile extends Component {
     }
 
     render() {
-        const userId = this.props.match.params.userId
         const innovatorId = this.props.match.params.innovatorId
         return (
 
             <Container>
-                    <Navbar />
+                <Navbar />
                 <Header>
                     <div>
-                    User Profile
+                        User Profile
                     </div>
-                
                 </Header>
-                <br />
                 <img src={this.state.singleUser.picture} alt={this.state.singleUser.username} />
                 <h2>
                     {this.state.singleUser.username}
@@ -60,26 +57,45 @@ class UserProfile extends Component {
                 <h4>
                     Email: {this.state.singleUser.email}
                 </h4>
-                <br/>
-
                 <h1 onClick={() => this.props.push(`/events`)}>Events</h1>
-                    {this.props.events
-                        .map((event, i) => {
-                            return (
-                                <div key={i}>
-                                    {/* <div onClick={() => this.props.push(`/users/${userId}/events/${event.id}/show`)}> */}
-                                        <h4>
-                                            Innovator: {event.innovator}
+                {this.props.events
+                    .map((event, i) => {
+                        console.log ("event id" + event.innovator_id)
+                        console.log ("innovator id" + innovatorId)
+                        console.log ("event description" + event.description)
+                        // if (event.innovator_id == innovator) 
+                        return (
+                            <div key={i}>
+                                {/* <div onClick={() => this.props.push(`/users/${userId}/events/${event.id}/show`)}> */}
+
+                                <h4>
+                                    Innovator: {event.innovator}
+                                </h4>
+                                {/* <h4>
+                                            Workshop: {event.workshop}
                                         </h4>
                                         <h4>
-                                            Description: {event.description}
-                                            </h4>
-                                        
-                                        <br />
-                                    </div>
-                                // </div>
+                                            One on one: {event.oneonone}
+                                        </h4> */}
+                                <h4>
+                                    Description: {event.description}
+                                </h4>
+
+                                <br />
+                            </div>
+                            // </div>
+                        )
+                    })}
+                    {/* {this.props.innovators
+                    .map((innovator, i) => {
+                        if (innovator.innovator_id == innovatorId) {
+                            return (
+                                <h4>
+                                    Innovator: {innovator.name}
+                                </h4>
                             )
-                        })}
+                        }
+                    })} */}
 
             </Container>
 
@@ -91,7 +107,7 @@ const mapStateToProps = (state) => {
     return { singleUser: state.users[0], events: state.events }
 }
 
-export default connect(mapStateToProps, {push, getOneUserRoute, getEventsRoute, getInnovatorRoute })(UserProfile);
+export default connect(mapStateToProps, { push, getOneUserRoute, getEventsRoute, getInnovatorRoute })(UserProfile);
 
 
 
@@ -122,7 +138,7 @@ const Container = styled.div`
         font-size: 25px;
     }
     `
-const Header = styled.h3 `
+const Header = styled.h3`
 margin: 40px auto;
 font-size: 5vh;
 `;

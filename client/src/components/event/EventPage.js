@@ -38,7 +38,6 @@ class EventPage extends Component {
 
     const eventAndInnovator = []
     events.forEach((individualEvent) => {
-
       const event = individualEvent.innovator_id
       const innovator = innovators.some((person) => {
         if (person.id === event) {

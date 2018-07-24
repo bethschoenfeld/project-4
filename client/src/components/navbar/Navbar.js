@@ -45,13 +45,14 @@ const Container = styled.div`
     position: relative; 
     margin-top:20px;
     button{
+    border: 1px solid black;
     width: 125px;
     height: 45px;
     padding:7.5px;
     font-size: 15px;
     text-align: center;
     margin:5px;
-    background:rgba(255,255,255,0.45);
+    background:rgba(255,255,255,0);
     cursor: pointer;
     &:hover{
         color: white;

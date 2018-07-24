@@ -19,10 +19,8 @@ class InnovatorProfile extends Component {
   render() {
     const innovatorId = this.props.match.params.innovatorId
     return (
-      
       <Container>
           <Navbar/>
-
         {this.props.innovators
           .map((innovator, i) => {
             if (innovator.id == innovatorId) {
@@ -95,8 +93,6 @@ const Container = styled.div `
     width: 80vh;
     }
     img{
-      width: 60vh;
-      height: 45vh;
       border: 2px solid black;
       margin-bottom:20px;
     }
